@@ -18,6 +18,10 @@
             padding: 20px;
             text-shadow: 0 0 1px #ff0055, 0 0 5px #770022;
         }
+        header img {
+            max-width: 100%;
+            height: auto;
+        }
         main {
             padding: 20px;
         }  
@@ -63,86 +67,74 @@
         .corner-image:hover {
             transform: scale(1.1);
         }
-
-        /* RESPONSIVITA */
-        @media (max-width: 768px) {
-            p {
-                font-size: 14px;
-            }
-            header {
-                padding: 10px;
-            }
-            .neon-line {
-                width: 80%;
-            }
+        .footer-image {
+            width: auto;
+            height: 40px;
+            margin-top: 20px;
         }
-
-        /* Video styl */
-        .video-container {
-            max-width: 600px;
-            margin: auto;
+        .homepage-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #BB0E4C;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
         }
-        video {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-            border-radius: 10px;
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
     </style>
 </head>
 <body>
     <header>
         <img src="https://github.com/Aikitdigital123/aikitdigital/raw/011e57132e2ffbc2e6d10aa022ee33be0487113d/giphy%20(1).gif" 
-     alt="Aikit Digital Animation" 
-     style="max-width: 600px; height: auto;">
-
+             alt="Aikit Digital Animation">
 
         <h1>AIKIT Digital – Crafting Innovative Software Solutions for Leading Brands</h1>
     </header>
     
     <main>
-        
         <h2>Design</h2>
         <hr class="neon-line"> 
-
-            <p>We begin by thoroughly analyzing your requirements and designing a solution that aligns with your goals.
-                Our team defines the system architecture, user experience, and technology stack to ensure a scalable, future-proof solution.</p>  
+        <p>We begin by thoroughly analyzing your requirements and designing a solution that aligns with your goals.
+           Our team defines the system architecture, user experience, and technology stack to ensure a scalable, future-proof solution.</p>  
             
-            <h2>Development</h2>
-            <hr class="neon-line"> 
+        <h2>Development</h2>
+        <hr class="neon-line"> 
+        <p>Before deployment, our software undergoes rigorous testing—including unit, integration, and stress testing—to ensure flawless functionality.
+           We guarantee that the solution meets all specifications and maintains high stability under real-world conditions.</p> 
             
-            <p>Before deployment, our software undergoes rigorous testing—including unit, integration, and stress testing—to ensure flawless functionality.
-                We guarantee that the solution meets all specifications and maintains high stability under real-world conditions. </p> 
+        <h2>Testing</h2>
+        <hr class="neon-line"> 
+        <p>Extensive testing (unit, integration, and stress tests) is carried out to ensure quality and reliability.
+           AIKIT ensures that the software meets all required functions and contains no critical bugs.</p>  
             
-            <h2>Testing </h2>
-            <hr class="neon-line"> 
+        <h2>Deployment</h2>
+        <hr class="neon-line"> 
+        <p>Seamless integration is key. Our deployment process is designed to minimize downtime and maximize efficiency.
+           We ensure a smooth transition from development to production, keeping operations running without disruption.</p>
             
-           <p> Extensive testing (unit, integration, and stress tests) is carried out to ensure quality and reliability.  
-            AIKIT ensures that the software meets all required functions and contains no critical bugs.</p>  
-            
-            <h2>Deployment</h2>
-            <hr class="neon-line"> 
-            
-            <p>Seamless integration is key. Our deployment process is designed to minimize downtime and maximize efficiency.
-                We ensure a smooth transition from development to production, keeping operations running without disruption. </p>
-            
-            <h2>Maintenance & 24/7 Support</h2>
-            <hr class="neon-line">   
-            
-            <p>Technology never stops evolving, and neither do we.
-                AIKIT Digital offers continuous monitoring, proactive maintenance, and 24/7 support to ensure peak system performance.
-                Our experts stand ready to address issues in real-time, delivering updates and optimizations to keep your infrastructure ahead of the curve.</p>  
+        <h2>Maintenance & 24/7 Support</h2>
+        <hr class="neon-line">   
+        <p>Technology never stops evolving, and neither do we.
+           AIKIT Digital offers continuous monitoring, proactive maintenance, and 24/7 support to ensure peak system performance.
+           Our experts stand ready to address issues in real-time, delivering updates and optimizations to keep your infrastructure ahead of the curve.</p>  
     </main>
 
     <footer>
-      <h5>2025 Aikit Digital. All rights reserved.</h5>
-      <a href="https://www.aikitdigital.com" style="display: inline-block; margin-top: 10px; padding: 10px 20px; 
-       background-color: #BB0E4C; color: white; text-decoration: none; border-radius: 5px; font-size: 14px;">
-       Visit Our Homepage
-    </a>
+        <div class="footer-content">
+            <h5>2025 Aikit Digital. All rights reserved.</h5>
+            <a href="https://www.aikitdigital.com" class="homepage-button">
+               Visit Our Homepage
+            </a>
+            <img src="https://github.com/Aikitdigital123/aikitdigital/raw/de679d4eaeb56c3b788db13c7fc383cb2748a8dd/Aikit.png" 
+                 alt="Aikit Footer Image" 
+                 class="footer-image">
+        </div>
     </footer> 
-    <img src="https://github.com/Aikitdigital123/aikitdigital/raw/de679d4eaeb56c3b788db13c7fc383cb2748a8dd/Aikit.png" alt="Aikit Footer Image" style="width: 20%; height: auto;">
- 
 </body>
 </html>
