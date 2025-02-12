@@ -15,23 +15,24 @@
         header {
             background-color: #0e0d0d;
             color: #BB0E4C;
-            padding: 10px;
-            text-shadow: 0 0 1px #ff0055, 0 0 5px #770022
-            
+            padding: 20px;
+            text-shadow: 0 0 1px #ff0055, 0 0 5px #770022;
         }
         main {
             padding: 20px;
         }  
         main h2 {
-        color: #BB0E4C;
-        text-shadow: 0 0 5px #BB0E4C, 0 0 px #BB0E4C;
-        margin: 20px 0;
-        text-align: center;
+            color: #BB0E4C;
+            text-shadow: 0 0 5px #BB0E4C, 0 0 px #BB0E4C;
+            margin: 20px 0;
+            text-align: center;
         }
         p {
             color: rgb(206, 192, 192);
             font-weight: bold;
-            text-shadow: 0 0 1px #c5c0c2, 0 0 1px #e6dadf
+            text-shadow: 0 0 1px #c5c0c2, 0 0 1px #e6dadf;
+            max-width: 90%;
+            margin: auto;
         } 
         footer {
             background-color: #0e0d0d;
@@ -45,30 +46,49 @@
             text-shadow: 0 0 1px #ff0055, 0 0 5px #770022;
         } 
         .neon-line {
-        border: none;
-        height: 5px;  /* Tloušťka rysky */
-        width: 50%;  /* Délka rysky */
-        background: linear-gradient(to top, rgba(255, 0, 127, 1), rgba(255, 0, 127, 0.2));
-        box-shadow: 0 0 40px rgba(255, 0, 127, 0.8), 0 0 30px rgba(255, 0, 127, 0.5);
-        margin: 20px auto;
-        display: block;
-        }
-
-        @keyframes neon-glow {
-        0% { box-shadow: 0 0 5px rgba(255, 0, 127, 0.5); }
-        50% { box-shadow: 0 0 20px rgba(255, 0, 127, 1); }
-        100% { box-shadow: 0 0 5px rgba(255, 0, 127, 0.5); }
-        }
-
-        .neon-line {
+            border: none;
+            height: 5px;
+            width: 50%;
+            background: linear-gradient(to top, rgba(255, 0, 127, 1), rgba(255, 0, 127, 0.2));
+            box-shadow: 0 0 40px rgba(255, 0, 127, 0.8), 0 0 30px rgba(255, 0, 127, 0.5);
+            margin: 20px auto;
+            display: block;
             animation: neon-glow 1.5s infinite alternate;
         }
-       
+        @keyframes neon-glow {
+            0% { box-shadow: 0 0 5px rgba(255, 0, 127, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(255, 0, 127, 1); }
+            100% { box-shadow: 0 0 5px rgba(255, 0, 127, 0.5); }
+        }
+        .corner-image:hover {
+            transform: scale(1.1);
+        }
 
-.corner-image:hover {
-    transform: scale(1.1);
-}
+        /* RESPONSIVITA */
+        @media (max-width: 768px) {
+            p {
+                font-size: 14px;
+            }
+            header {
+                padding: 10px;
+            }
+            .neon-line {
+                width: 80%;
+            }
+        }
 
+        /* Video styl */
+        .video-container {
+            max-width: 600px;
+            margin: auto;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
