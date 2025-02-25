@@ -6,5 +6,5 @@ git status
 
 2.
 git add .
-git commit -m "Opětovné nahrání opravy"
+git commit -m "Opětovné nahrání opravy1"
 git push origin main
