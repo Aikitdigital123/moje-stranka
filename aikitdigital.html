@@ -35,7 +35,10 @@
             text-shadow: 0 0 1px #BB0E4C, 0 0 5px #BB0E4C;
             margin: 20px 0;
             text-align: center;
+            animation: electric-effect 5.86s cubic-bezier(0.5, 1, 0.5, 1) infinite;
+            
         }
+        
         p {
             color: rgb(206, 192, 192);
             font-weight: bold;
@@ -160,7 +163,63 @@
                 filter: drop-shadow(6px 6px 15px rgba(255, 0, 127, 0.9));
             }
         }
+        
+        .container {
+        width: 300px;
+        height: 120px;
+        margin: 11px auto;
+        position: relative;
+        }
 
+        .planet {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            background: url(https://demo.tutorialzine.com/2013/10/css3-features-you-can-finally-use/assets/img/planet.png) no-repeat center center;
+            background-size: contain;
+            transform: translate(-50%, -50%);
+        }
+
+        .rocket {
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background: url(https://demo.tutorialzine.com/2013/10/css3-features-you-can-finally-use/assets/img/rocket.png) no-repeat 50px center;
+            
+            /* Chrome still requires the -webkit- prefix */
+            -webkit-animation:orbit 2s linear infinite;
+            animation:orbit 6s linear infinite;
+            transition:background-position 0.8s
+        }
+        
+
+        @-webkit-keyframes orbit {
+            from {
+                -webkit-transform:rotate(0deg);}
+                to {
+                -webkit-transform:rotate(360deg);
+            }
+        }
+
+        @keyframes orbit {
+            from {
+                transform:  rotate(0deg) ;
+            }
+            to {
+                transform:  rotate(360deg);
+            }
+        }
+        @keyframes electric-effect {
+            
+            30% {
+                text-shadow: 0 0 10px #ff0055, 0 0 20px #ff3377, 0 0 30px #ff66aa;
+            }
+           
+        
         
     </style>
 </head>
@@ -170,9 +229,14 @@
              alt="Animated demonstration by AIKIT Digital">
 
         <h1>AIKIT Digital – Crafting Innovative Software Solutions for Leading Brands</h1>
+        
     </header>
     <main>
-        <h2>Design</h2>
+        <div class="container">
+            <div class="planet"></div>
+            <div class="rocket"></div>
+        </div>
+        <h2 class="electric-text">Design</h2>
         <hr class="neon-line"> 
         <p>We begin by thoroughly analyzing your requirements and designing a solution that aligns with your goals.
            Our team defines the system architecture, user experience, and technology stack to ensure a scalable, future-proof solution.</p>  
