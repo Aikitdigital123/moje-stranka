@@ -132,17 +132,17 @@ nav ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: nowrap; /* Zakáže zalamování */
   padding: 0;
   margin: 0;
   list-style: none;
-  gap: 15px; /* mezery mezi tlačítky */
-  overflow-x: auto; /* kdyby se fakt nevešlo, zobrazí horizontální scroll */
+  gap: 20px; /* mezery mezi tlačítky pro desktop */
+  flex-wrap: nowrap; /* důležité - zákaz zalamování na nový řádek */
+  overflow-x: auto; /* pokud se to fakt nevejde, povolí vodorovné scrollování */
 }
 
 nav ul li {
   margin: 0;
-  flex-shrink: 0; /* Zabrání zmenšování prvků */
+  white-space: nowrap; /* zabrání zalamování dlouhých textů */
 }
 
 nav ul li a {
@@ -150,29 +150,30 @@ nav ul li a {
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
-  padding: 10px;
+  padding: 10px 15px;
   transition: color 0.3s, border-bottom 0.3s;
-  white-space: nowrap; /* zabrání zalamování textu v tlačítkách */
 }
 
+/* Styl při najetí */
 nav ul li a:hover {
   color: white;
   border-bottom: 2px solid #BB0E4C;
 }
 
-/* Responzivní úprava pro menší obrazovky */
+/* Menší displeje - mobilní úprava */
 @media (max-width: 600px) {
   nav ul {
-      gap: 5px; /* menší mezery na menších displejích */
-      overflow-x: auto; /* možnost posouvání menu do strany */
-      padding: 10px 0; /* trochu místa nad a pod */
+      gap: 8px; /* menší mezery */
+      padding: 5px 0;
+      overflow-x: auto; /* umožní posunout menu, pokud by se nevešlo */
   }
 
   nav ul li a {
-      font-size: 14px; /* menší text na malých displejích */
-      padding: 8px; /* menší tlačítka */
+      font-size: 14px; /* menší text */
+      padding: 8px 10px; /* menší vnitřní okraje */
   }
 }
+
 
 
 
