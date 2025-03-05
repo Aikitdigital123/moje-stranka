@@ -477,7 +477,6 @@ main {
     justify-content: center; /* Horizontální vycentrování */
     flex-wrap: wrap; /* Když se nevejde, přehodí loader pod nadpis */
     gap: 15px; /* Mezera mezi nadpisem a loaderem */
-    white-space: nowrap; /* Zabrání zalomení textu na další řádek */
     margin: 20px 0; /* Prostor nad a pod wrapperem */
   }
 
