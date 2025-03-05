@@ -25,15 +25,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-function resetLoaders() {
-    const loader = document.querySelector('.loader-custom');
-    if (loader) {
-        loader.classList.remove('loader-custom');
+document.addEventListener("DOMContentLoaded", () => {
+    const loader = document.getElementById('page-loader');
 
+    if (loader) {
+        // Zobrazíme loader
+        loader.classList.add('active');
+
+        // Trik pro restartování animace - odstraníme a znovu přidáme třídu
         setTimeout(() => {
-            loader.classList.add('loader-custom');
+            loader.classList.remove('loader');
+            void loader.offsetWidth;  // nutné pro restart animace
+            loader.classList.add('loader');
         }, 50);
     }
-}
+});
+
+
 
 
