@@ -88,16 +88,25 @@ section h3 {
 
 /* Pro jistotu, pokud chceš mezery kolem seznamu */
 section ul {
+    list-style: disc;
     padding-left: 20px;
-    margin: 0;
-    list-style: none; /* Pokud nechceš klasické tečky */
 }
 
-/* Pokud chceš odstranit klasické tečky a máš tam ten loader-support */
 section ul li {
     position: relative;
-    padding-left: 30px; /* Rezerva na ikonku */
-    margin-bottom: 8px;
+    padding-left: 5px; /* Místo pro růžovou ikonku + tečku */
+}
+
+/* Vlastní růžová ikonka */
+section ul li::before {
+    content: ''; /* Obsah je prázdný, používáme obrázek */
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 20px;
+    height: 20px;
+    background: url('tvoje-ruzova-ikonka.png') no-repeat center center;
+    background-size: contain;
 }
 
   
