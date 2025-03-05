@@ -109,6 +109,7 @@ section ul li::before {
     background-size: contain;
 }
 
+
   
  /* ========================= */
 /* 🔹 NAVIGAČNÍ MENU (nav) */
@@ -474,6 +475,7 @@ main {
     display: flex;
     align-items: center; /* Vertikální zarovnání na střed */
     justify-content: center; /* Horizontální vycentrování */
+    flex-wrap: wrap; /* Když se nevejde, přehodí loader pod nadpis */
     gap: 15px; /* Mezera mezi nadpisem a loaderem */
     white-space: nowrap; /* Zabrání zalomení textu na další řádek */
     margin: 20px 0; /* Prostor nad a pod wrapperem */
@@ -482,7 +484,7 @@ main {
   .page-title {
     margin: 0;
     font-size: 24px;
-    line-height: 1.2; /* Snížení výšky řádku pro lepší zarovnání */
+    line-height: 2.2; /* Snížení výšky řádku pro lepší zarovnání */
   }
 
   .loader {
