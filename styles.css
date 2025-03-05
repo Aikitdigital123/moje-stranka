@@ -128,43 +128,65 @@ section {
 /* 🔹 STYL PRO POLOŽKY SEZNAMU (li) NAVIGACE */
 /* =========================== */
 
-nav ul li {
-  display: inline;
-  /* Umožní zobrazit odkazy vedle sebe */
-  margin: 0 20px;
-  /* Přidá prostor mezi jednotlivými odkazy */
+nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
 }
 
-/* ========================== */
-/* 🔹 Ostraneni teček */
-/* ========================== */
+/* Desktop verze - odkazy vedle sebe */
+nav ul li {
+  display: inline;
+  margin: 0 20px;
+}
 
-
-/* ========================== */
-/* 🔹 ODKAZY (a) V NAVIGACI */
-/* ========================== */
+/* Odkazy (a) - zůstává tvůj styl */
 nav ul li a {
   color: #BB0E4C;
-  /* Barva textu (tmavě červená) */
   text-decoration: none;
-  /* Odstraní podtržení */
   font-size: 18px;
-  /* Zvýší velikost textu */
   font-weight: bold;
-  /* Nastaví tučné písmo */
   padding: 10px;
-  /* Přidá prostor kolem textu */
   transition: color 0.3s, border-bottom 0.3s;
-  /* Plynulá změna barvy a podtržení */
-
 }
 
 nav ul li a:hover {
   color: white;
-  /* Při najetí myší změní barvu textu na bílou */
   border-bottom: 2px solid #BB0E4C;
-  /* Přidá červené podtržení */
 }
+
+/* ====== Mobilní verze - úprava pro menší displeje ====== */
+@media (max-width: 600px) {
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;  /* mezery mezi tlačítky */
+  }
+
+  nav ul li {
+    display: block;
+    margin: 0;
+  }
+
+  nav ul li a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    background-color: #f8f8f8; /* Jemné pozadí pro lepší viditelnost */
+    border: 1px solid #ddd;
+    font-size: 16px;
+  }
+
+  nav ul li a:hover {
+    background-color: #BB0E4C;
+    color: white;
+    border-bottom: none;
+  }
+}
+
 
 /* =========================== */
 /* 🔹 STYL PRO LOGO V HLAVIČCE */
