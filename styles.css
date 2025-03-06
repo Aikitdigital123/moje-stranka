@@ -127,7 +127,12 @@ section ul li::before {
     background-size: contain;
 }
 
-
+/*odstraneni tecet na index*/
+.no-bullets {
+    list-style: none;
+    padding-left: 20px;
+}
+/*Odstraneni tecek -KONEC*/
   
  /* ========================= */
 /* 🔹 NAVIGAČNÍ MENU (nav) */
