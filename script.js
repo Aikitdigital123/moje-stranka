@@ -1,15 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("fade-in");
 
-    // Reset loaderu po načtení stránky
+    // ✅ Reset loaderu
+    function resetLoaders() {
+        console.log("Loader resetován"); // Pro testování
+        // Přidej další akce podle potřeby
+    }
     setTimeout(resetLoaders, 300);
 
+    // ✅ Najdeme všechny odkazy
     const links = document.querySelectorAll("a");
 
     links.forEach(link => {
         link.addEventListener("click", (event) => {
             if (link.getAttribute("href").startsWith("#")) {
-                return;
+                return; // Ignoruj interní odkazy
             }
 
             event.preventDefault();
@@ -23,24 +28,19 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 300);
         });
     });
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-    const loader = document.getElementById('page-loader');
-
+    // ✅ Přidání loaderu (původní kód)
+    const loader = document.getElementById("page-loader");
     if (loader) {
-        // Zobrazíme loader
-        loader.classList.add('active');
+        loader.classList.add("active");
 
-        // Trik pro restartování animace - odstraníme a znovu přidáme třídu
         setTimeout(() => {
-            loader.classList.remove('loader');
-            void loader.offsetWidth;  // nutné pro restart animace
-            loader.classList.add('loader');
+            loader.classList.remove("loader");
+            void loader.offsetWidth; // Nutné pro restart animace
+            loader.classList.add("loader");
         }, 50);
     }
 });
-
 
 
 document.addEventListener("DOMContentLoaded", () => {
