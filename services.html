@@ -1,152 +1,665 @@
-<!-- SERVICES.HTML - Stránka služeb -->
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aikit Digital - Služby</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-</head>
+/* STYLES.CSS - Společné styly pro všechny stránky */
 
-<body>
-    <script src="script.js"></script>
+/* ===================== */
+/* 🔹 ZÁKLADNÍ NASTAVENÍ */
+/* ===================== */
 
-    <a href="#main-content" class="skip-link">Přeskočit na hlavní obsah</a>
 
-    <header>
-        <img src="https://raw.githubusercontent.com/Aikitdigital123/aikitdigital/fbb924518fe02624c5b1c6c1920393d49906e016/8.%20aikit%20logo%20space1.jpg" 
-            alt="Aikit Digital Logo Space"
-            style="width: 100%; max-width: 600px; height: auto;">
+/* Základní text (těla stránky) - Inter Tight */
+body {
+  font-family: 'Inter Tight', sans-serif;
+  background-color: #0b0a0a;
+  color: white;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out, background-color 1.5s ease-in-out;
+}
 
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active">Domů</a></li>
-                    <li><a href="services.html">Služby</a></li>
-                    <li><a href="contact.html">O nás/Kontakt</a></li>
-                </ul>
-            </nav>
+/* Nadpisy - Montserrat */
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
 
-        <div class="title-wrapper">
-            <h1 class="page-title">Služby Aikit Digital: Divize Industry 4.0</h1>
-            <span class="loader-heading-wrapper">
-                <span class="loader-heading"></span>
-            
-        </div>
+/* Navigace - Montserrat */
+nav {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
 
-        <h3>Naše služby pokrývají celý životní cyklus digitální výroby – od návrhu a vývoje až po každodenní provozní podporu. Spojujeme <strong>IT technologie, automatizaci a práci s výrobními daty</strong> do funkčního celku, který přináší reálné výsledky.</h3>
-    </header>
 
-    <main id="main-content">
-        
-        
-        <div class="main-content">
+  
+  
+  /* Efekt zmizení při odchodu */
+  body.fade-out {
+    opacity: 0;
+    background-color: #0b0a0a; /* Udrží černé pozadí při přechodu */
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  /* Efekt objevení při načtení */
+  body.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+  
+  /* Animace pro fade-in */
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+  }
+  
+  
+  /* ============================================ */
+  /* 🔹 ODKAZ "PŘESKOČIT NA HLAVNÍ OBSAH" (PŘÍSTUPNOST) */
+  /* ============================================ */
+  
+  .skip-link {
+    position: absolute;
+    /* Odkaz je normálně skrytý mimo viditelnou část stránky */
+    left: -999px;
+    /* Posune ho mimo obrazovku */
+    top: 10px;
+    /* Umístí ho 10px od horního okraje */
+    background: white;
+    /* Bílé pozadí */
+    color: black;
+    /* Černý text */
+    padding: 10px;
+    /* Přidá vnitřní okraje */
+    text-decoration: none;
+    /* Odstraní podtržení */
+  }
+  
+  .skip-link:focus {
+    left: 10px;
+    /* Přesune odkaz zpět na viditelné místo, když je aktivní */
+  }
+  
+  /* =========================== */
+/* 🔹 Vizuálně oddělí a zarovna na stred každou službu (sekci) v menu stranky DOMU */
+/* =========================== */
 
-            <section class="service-block">
-                <h3>1LS – 3LS technická podpora</h3>
-                <img src="https://raw.githubusercontent.com/Aikitdigital123/aikitdigital/main/1.1LS%20-%203LS%20technical%20support.png"
-                    alt="Technická podpora"
-                    data-large="https://raw.githubusercontent.com/Aikitdigital123/aikitdigital/e52ffe087c8bfb8c69181aafcf82cb09683cc291/11.%20Technical%20support%2C%20big-picture.png"
-                    class="service-image zoomable" >
-                <p>Nepřetržitá podpora pro vaše klíčové výrobní systémy.</p>
-                <ul>
-                    <li>1st level support – rychlá reakce na běžné incidenty</li>
-                    <li>2nd level support – analýza složitějších problémů</li>
-                    <li>3rd level support – expertní podpora</li>
-                    <li>Monitoring a proaktivní dohled nad systémy</li>
-                    <li>Podpora SCADA, MES, ERP, PLC/HMI, databází</li>
-                </ul>
-            </section>
+section {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid #444;
+    border-radius: 10px;
+    text-align: left; /* Text v seznamu a obecně v sekci zůstává doleva */
+}
 
-            <section class="service-block">
-                <h3>PLC programování a podpora automatizace</h3>
-                <!-- Zde můžete přidat odkaz na obrázek -->
-                <img src="https://raw.githubusercontent.com/Aikitdigital123/aikitdigital/c385721868924afce5689bf22c26dc3b03c1fced/2.PLC%20programming%20and%20automation%20support.PNG"
-                    alt="PLC programming and automation support" 
-                    data-large="https://raw.githubusercontent.com/Aikitdigital123/aikitdigital/e52ffe087c8bfb8c69181aafcf82cb09683cc291/12.%20PLC%20programming%20and%20automation%20support%2C%20big-picture.PNG"
-                    class="service-image zoomable" >
-                <p>Řídicí systémy v rukou odborníků s praxí ve výrobě.</p>
-                <ul>
-                    <li>Programování nových linek i modernizace stávajících</li>
-                    <li>Diagnostika a optimalizace řídicích programů</li>
-                    <li>Propojení PLC s nadřazenými systémy (SCADA, MES, ERP)</li>
-                </ul>
-            </section>
+/* Nadpis vycentrovat */
+section h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
 
-            <section class="service-block">
-                <h3>Vývoj softwaru a aplikací na míru</h3>
-                <img src="https://raw.githubusercontent.com/Aikitdigital123/aikitdigital/c385721868924afce5689bf22c26dc3b03c1fced/3.Custom%20software%20and%20application%20development.png"
-                    alt="Vývoj aplikací na míru"
-                    data-large="https://raw.githubusercontent.com/Aikitdigital123/aikitdigital/e52ffe087c8bfb8c69181aafcf82cb09683cc291/13.%20Custom%20software%20and%20application%20development%2C%20big-picture.png"
-                    class="service-image zoomable" >
-                <p>Moderní aplikace pro řízení výroby a podporu operátorů.</p>
-                <ul>
-                    <li>Webové aplikace pro management výroby a reporting</li>
-                    <li>Mobilní aplikace pro operátory a údržbu</li>
-                    <li>Integrace aplikací s výrobními systémy</li>
-                </ul>
-            </section>
+/*  mezery kolem seznamu */
+section ul {
+    list-style: disc;
+    padding-left: 20px;
+}
 
-            <section class="service-block">
-                <h3>Databáze a správa výrobních dat</h3>
-                <img src="https://raw.githubusercontent.com/Aikitdigital123/aikitdigital/e52ffe087c8bfb8c69181aafcf82cb09683cc291/4.Database%20and%20production%20data%20management.png"
-                    alt="Databáze a správa výrobních dat"
-                    data-large="https://raw.githubusercontent.com/Aikitdigital123/aikitdigital/e52ffe087c8bfb8c69181aafcf82cb09683cc291/4.Database%20and%20production%20data%20management.png"                 class="service-image zoomable" >
-                <p>Výrobní data pod kontrolou – od sběru po analýzu.</p>
-                <ul>
-                <p>Výrobní data pod kontrolou – od sběru po analýzu.</p>
-                <ul>
-                    <li>Návrh a optimalizace databází</li>
-                    <li>Historizace dat z výroby (výrobní dávky, alarmy, OEE)</li>
-                    <li>Integrace výrobních dat do ERP a BI systémů</li>
-                </ul>
-            </section>
+section ul li {
+    position: relative;
+    padding-left: 5px; /* Místo pro růžovou ikonku + tečku */
+}
 
-            <section class="service-block">
-                <h3>Konzultace a poradenství pro Industry 4.0</h3>
-                <img src="https://raw.githubusercontent.com/Aikitdigital123/aikitdigital/c385721868924afce5689bf22c26dc3b03c1fced/5.Industry%204.0%20consulting%20and%20advisory%20services.png"
-                    alt="Konzultace a poradenství pro Industry 4.0"
-                    data-large="https://raw.githubusercontent.com/Aikitdigital123/aikitdigital/e52ffe087c8bfb8c69181aafcf82cb09683cc291/15.%20Industry%204.0%20consulting%20and%20advisory%20services%2C%20big-picture.png"
-                    class="service-image zoomable" >
-                <ul>
-                    <li>Audit stávajících výrobních IT systémů</li>
-                    <li>Návrh strategie digitalizace a roadmapy</li>
-                    <li>Návrh architektury propojení výroby a IT</li>
-                </ul>
-            </section>
 
-            <section class="service-block">
-                <h3>Integrace výrobních systémů</h3>
-                <img src="https://raw.githubusercontent.com/Aikitdigital123/aikitdigital/c385721868924afce5689bf22c26dc3b03c1fced/6.Integration%20of%20production%20systems.JPG"
-                    alt="Integrace výrobních systémů"
-                    data-large="https://raw.githubusercontent.com/Aikitdigital123/aikitdigital/e52ffe087c8bfb8c69181aafcf82cb09683cc291/16.%20Integration%20of%20production%20systems%2C%20big-picture.png"
-                    class="service-image zoomable" >
-                <p>Data propojená napříč celou továrnou.</p>
-                <ul>
-                    <li>Integrace PLC, SCADA, MES, ERP</li>
-                    <li>Zajištění bezproblémového toku dat mezi výrobou a managementem</li>
-                    <li>Propojení výroby s obchodními a logistickými systémy</li>
-                </ul>
-            </section>
+/*odstraneni tecek na index*/
+.no-bullets {
+    list-style: none;
+    padding-left: 20px;
+}
+/*Odstraneni tecek -KONEC*/
+  
+ /* ========================= */
+/* 🔹 NAVIGAČNÍ MENU (nav) */
+/* ========================= */
 
-        </div>
+nav {
+    background-color: #1a1a1a;
+    padding: 15px;
+    box-sizing: border-box; /* Lepší práce s šířkou a paddingem */
+}
 
-        <p><strong>S námi je Industry 4.0 realitou – spolehlivě a efektivně.</strong></p>
-        <p>📩 Kontaktujte nás pro nezávaznou konzultaci a zjistěte, jak vám můžeme pomoci.</p>
-    </main>
+/* =========================== */
+/* 🔹 SEZNAM V NAVIGACI (ul) */
+/* =========================== */
 
-    <footer>
-        <div class="footer-content">
-            <h5>2025 Aikit Digital. All rights reserved.</h5>
-            <a href="https://www.aikitdigital.com" class="homepage-button">
-               Visit Our Homepage
-            </a>
-            <img src="https://github.com/Aikitdigital123/aikitdigital/raw/de679d4eaeb56c3b788db13c7fc383cb2748a8dd/Aikit.png" 
-                 alt="Aikit Digital logo in the footer" 
-                 class="footer-image">
-        </div>
-    </footer>
-</body>
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Mezera mezi tlačítky */
+    flex-wrap: wrap; /* Zalomeni pod sebe */
+    text-align: center;
+}
 
-</html>
+/* =========================== */
+/* 🔹 POLOŽKY SEZNAMU (li) */
+/* =========================== */
+
+nav ul li {
+    text-align: center;
+    white-space: nowrap; /* Zabrání zalomení jednotlivých položek */
+}
+
+/* =========================== */
+/* 🔹 ODKAZY V NAVIGACI (a) */
+/* =========================== */
+
+nav ul li a {
+    color: #BB0E4C;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 5px;
+    border-bottom: 3px solid transparent; /* Transparentní border, takže nezmění výšku */
+    transition: color 0.3s, border-bottom-color 0.3s, background-color 0.3s;
+    position: relative;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    color: white;
+    border-bottom-color: #BB0E4C; /* Změní jen barvu, ne velikost */
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================== */
+/* 🔹 RESPONSIVE DESIGN */
+/* =========================== */
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-wrap: wrap; /* Položky pod sebe */
+        justify-content: center;
+        gap: 15px;
+        padding: 5px 0;
+    }
+
+    nav ul li {
+        width: auto; /* Ne přes celou šířku, lepší pro tablety */
+    }
+
+    nav ul li a {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul li {
+        width: 100%; /* Na mobilech tlačítka přes celou šířku */
+    }
+
+    nav ul li a {
+        text-align: center;
+        display: block; /* Celé tlačítko klikací */
+    }
+}
+
+
+  
+  
+  /* ======================== */
+  /* 🔹 HLAVIČKA STRÁNKY (h1) */
+  /* ======================== */
+  
+  header img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: auto;
+    object-fit: contain;
+    
+  }
+  
+  /* ======================= */
+  /* 🔹 HLAVNÍ OBSAH (main) */
+  /* ======================= */
+  
+  main {
+    padding: 40px;
+    /* Přidá prostor kolem hlavního obsahu */
+    max-width: 800px;
+    /* Maximální šířka obsahu 800px */
+    margin: auto;
+    /* Zarovná obsah na střed */
+  }
+  
+  /* ===================== */
+  /* 🔹 PATIČKA (footer) */
+  /* ===================== */
+  
+  footer {
+    background-color: #1a1a1a;
+    padding: 20px 10px 30px 10px; /* nahoře 20px, vpravo 10px, dole 30px, vlevo 10px */
+    margin-top: 30px; /* mezera nad footerem */
+    color: #BB0E4C;
+    box-sizing: border-box; /* aby padding neovlivňoval velikost */
+}
+
+/* :přidat mezery i na úplně spodní část stránky */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* celá stránka minimálně výška okna */
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1; /* hlavní obsah zabere zbytek výšky */
+}
+
+/* footer nemá být nalepený na spodek stránky */
+.footer-spacer {
+    height: 20px; /* třeba 20px mezera pod footerem */
+    background: transparent;
+}
+
+  
+  .footer-image {
+    width: auto;
+    height: 40px;
+    margin-top: 10px;
+  }
+  .homepage-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #BB0E4C;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, background-color 0.3s;
+  box-shadow: 0 0 10px rgba(255, 0, 127, 0.6);
+  }
+  
+  .homepage-button:hover {
+    transform: scale(1.1);
+    background-color: #ff3377;
+    box-shadow: 0 0 20px rgba(255, 0, 127, 1);
+  }
+  
+  .homepage-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.5s ease-in-out;
+  }
+  
+  .homepage-button:hover::before {
+    left: 100%;
+  }
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+    h1 {
+        font-size: 40px;
+        color: #BB0E4C;
+        text-shadow: 0 0 1px #BB0E4C, 0 0 1px #BB0E4C, 0 0 30px #BB0E4C; 
+        animation: neon-glow 5s ease-in-out infinite alternate;
+    }
+    body {
+    cursor: url('https://cur.cursors-4u.net/cursors/cur-2/cur120.cur'), auto;
+    }
+    .footer-image {
+    width: auto;
+    height: 40px;
+    margin-top: 10px;
+    animation: rotateLogo 2s linear infinite alternate, glowEffect 2s ease-in-out infinite alternate;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    filter: drop-shadow(4px 4px 10px rgba(255, 0, 127, 0.6));
+    }
+    @keyframes rotateLogo {
+      0% {
+          transform: rotateY(0deg) scale(1);
+      }
+      100% {
+          transform: rotateY(20deg) scale(1);
+      }
+  }
+  
+  @keyframes glowEffect {
+      0% {
+          filter: drop-shadow(2px 2px 5px rgba(255, 0, 127, 0.3));
+      }
+      100% {
+          filter: drop-shadow(6px 6px 15px rgba(255, 0, 127, 0.9));
+      }
+  }
+  /* ===================== */
+  /* 🔹 Nova sekce -Kontaktní formulář */
+  /* ===================== */
+  .about-us, .references, .contact-form {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid #444;
+    border-radius: 10px;
+    text-align: left;
+  }
+  
+  .contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .contact-form label {
+    font-weight: bold;
+  }
+  
+  .contact-form input, 
+  .contact-form textarea {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .contact-form button {
+    background-color: #BB0E4C;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .contact-form button:hover {
+    background-color: #930C3E;
+  }
+  /* ===================== */
+  /* Kontaktní formulář - KONEC */
+  /* ===================== */
+  
+  /* ===================== */
+  /* Loader na strance Sluzby */
+  /* ===================== */
+  .loader-heading {
+    width: 90px;
+    height: 30px;
+    --g: repeat-x repeating-linear-gradient(90deg,#ccc 0 16px,#0000 0 18px,#ccc 0 34px,#0000 0 100%);
+    background: var(--g), var(--g);
+    background-size: 60px 14px, 60px 14px;
+    animation: l8-heading 1s infinite linear;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    position: relative;
+    top: -9px; 
+  }
+  
+  
+  
+  @keyframes l8-heading {
+    0%   {background-position: 0    0, 0    100%}
+    100% {background-position: 60px 0, 60px 100%}
+  }
+  
+  /* ===================== */
+  /* Loader na strance Sluzby - KONEC*/
+  /* ===================== */
+  
+  /* ===================== */
+  /* Loader na strance O nás/Kontakt */
+  /* ===================== */
+  .loader-onas {
+    width: 40px;
+    aspect-ratio: 1;
+    color: #BB0E4C;
+    background: conic-gradient(currentColor 0 270deg, transparent 0);
+    border-radius: 50%;
+    animation: loader-onas-rotate 4s infinite linear;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    overflow: hidden;
+  }
+  
+  .loader-onas::before {
+    content: "";
+    display: block;
+    height: 50%;
+    width: 50%;
+    border-top-left-radius: 100px;
+    background: currentColor;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: loader-onas-bounce 0.5s infinite alternate ease-in-out;
+  }
+  
+  @keyframes loader-onas-rotate {
+    0%, 24.99% { transform: rotate(0deg); }
+    25%, 49.99% { transform: rotate(90deg); }
+    50%, 74.99% { transform: rotate(180deg); }
+    75%, 100% { transform: rotate(270deg); }
+  }
+  
+  @keyframes loader-onas-bounce {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-10px, -10px); }
+  }
+  
+  /* ===================== */
+  /* Loader na strance O nás/Kontakt -KONEC */
+  /* ===================== */
+  
+  /* ===================== */
+  /* Loader sekce Domu  - linka s kostičkami */
+  /* ===================== */
+  
+  .title-wrapper {
+    display: flex;
+    align-items: center; /* Vertikální zarovnání na střed */
+    justify-content: center; /* Horizontální vycentrování */
+    flex-wrap: wrap; /* Když se nevejde, přehodí loader pod nadpis */
+    gap: 15px; /* Mezera mezi nadpisem a loaderem */
+    margin: 20px 0; /* Prostor nad a pod wrapperem */
+  }
+
+  .page-title {
+    margin: 0;
+    font-size: 24px;
+    line-height: 2.2; /* Snížení výšky řádku pro lepší zarovnání */
+  }
+
+  .loader {
+    width: 90px;
+    height: 12px;
+    clip-path: inset(-20px 0 -5px);
+    position: relative;
+    top: 1px; /* Jemné doladění pozice loaderu oproti textu */
+    display: flex; /*  lepší zarovnání uvnitř */
+    align-items: center; /* Obsah loaderu na střed */
+  }
+
+  /* Loader animace */
+  .loader:before {
+    content: "";
+    position: absolute;
+    inset: auto calc(50% - 17px) 0;
+    height: 50px;
+    --g: no-repeat linear-gradient(#ccc 0 0);
+    background: var(--g), var(--g), var(--g), var(--g);
+    background-size: 16px 14px;
+    animation:
+        l7-1 2s infinite linear,
+        l7-2 2s infinite linear;
+  }
+
+/* Klíčové snímky pro animaci */
+  @keyframes l7-1 {
+    0%, 100% { background-position: 0 -50px, 100% -50px; }
+    17.5% { background-position: 0 100%, 100% -50px, 0 -50px, 100% -50px; }
+    35% { background-position: 0 100%, 100% 100%, 0 -50px, 100% -50px; }
+    52.5% { background-position: 0 100%, 100% 100%, 0 calc(100% - 16px), 100% -50px; }
+    70%, 98% { background-position: 0 100%, 100% 100%, 0 calc(100% - 16px), 100% calc(100% - 16px); }
+  }
+
+  @keyframes l7-2 {
+    0%, 70% { transform: translate(0); }
+    100% { transform: translate(200%); }
+  }
+
+  
+  
+    
+  /*Obrazky na strance services */
+  .main-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .service-block {
+    width: calc(50% - 20px); /* dvě vedle sebe, s mezerou */
+    box-sizing: border-box;
+    background-color: #222; 
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .service-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 15px;
+  }
+  
+  /* Pro malé obrazovky - telefony */
+  @media (max-width: 768px) {
+    .service-block {
+        width: 100%; /* na malých obrazovkách pod sebou */
+    }
+  }
+  /*Obrazky na strance services-konec */
+  
+  /* ===================== */
+  /* Loader na strance Domu hlavní text */
+  /* ===================== */
+.loader-support {
+    --s: 25px;
+    --_d: calc(0.353 * var(--s));
+    width: calc(var(--s) + var(--_d));
+    aspect-ratio: 1;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;  /* Mezera mezi loaderem a textem */
+    filter: drop-shadow(0 0 0 #fff);
+    animation: l2-support 2.8s infinite;
+    background: none; /* potřebné, aby byl vidět uvnitř */
+    position: relative;
+    top: -2px; /* Doladění svislého zarovnání */
+  }
+  
+  .loader-support:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(
+        var(--_d) 0, 100% 0, 100% calc(100% - var(--_d)),
+        calc(100% - var(--_d)) 100%, 0 100%, 0 var(--_d)
+    );
+    background:
+        conic-gradient(from -90deg at var(--s) var(--_d),
+        #D56278 135deg, #BB0E4C 0 270deg, #800A32 0);
+  }
+  
+  @keyframes l2-support {
+    50% {
+        filter: drop-shadow(0 0 5px #fff);
+    }
+  }
+  /* ===================== */
+  /* Loader na strance Domu hlavní text - KONEC*/
+  /* ===================== */
+  .page-header {
+    padding: 40px 0 20px 0; /* nahoře 40px, dole 20px */
+    text-align: center;
+    background-color: #0b0a0a; /* Stejné jako background body */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* jemná linka pod nadpisem */
+}
+
+.page-header h1 {
+    font-size: 30px;
+    color: #BB0E4C;
+    margin: 0;
+}
+
+.page-header .loader {
+    margin-top: 10px;
+}
+
+/* Velikost a základní nastavení */
+.service-image {
+  cursor: pointer;
+  transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
+  position: relative;
+  outline: none;
+}
+
+/* Efekt při najetí myší */
+.service-image.hovered {
+  filter: brightness(0.8);
+  transition: filter 0.3s ease-in-out;
+}
+
+/* Efekt při zaměření klávesnicí (`Tab`) */
+.service-image.focused {
+  outline: 3px solid #ffffff;
+  filter: brightness(0.8);
+  transition: filter 0.3s ease-in-out, outline 0.3s ease-in-out;
+}
+
+/* Efekt zvětšení */
+.service-image.zoomed {
+  transform: scale(1.5); /* Plynulé zvětšení */
+  z-index: 10;
+  position: relative;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* Jemný stín */
+  transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Efekt při návratu do původní velikosti */
+.service-image:not(.zoomed) {
+  transform: scale(1); /* Plynulé zmenšení zpět */
+  box-shadow: none; /* Odstranění stínu */
+  transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+
+
