@@ -1,0 +1,22 @@
+{
+  "name": "moje-stranka",
+  "private": true,
+  "type": "module",
+  "description": "AIKIT Digital – Divize Industry 4.0 (static pages) + CCAR-F Trainer (Vite app in ccar-f/)",
+  "scripts": {
+    "dev": "vite ccar-f",
+    "build": "vite build ccar-f && node scripts/assemble.mjs",
+    "preview": "npm run build && node scripts/serve-dist.mjs",
+    "test": "node --test ccar-f/test/*.test.mjs",
+    "check": "npm test && npm run build && node scripts/verify-dist.mjs",
+    "test:e2e": "npm run build && playwright test",
+    "serve": "node scripts/serve-dist.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "vite": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
