@@ -1,7 +1,7 @@
 // CCAR-F Trainer service worker: offline support.
 // Navigation + data: network-first (fresh content when online, cache when offline).
 // Hashed build assets (assets/*): cache-first (file names change on every build).
-const CACHE = "ccarf-v2";
+const CACHE = "ccarf-v3"; // bump on data changes so old question files are evicted
 self.addEventListener("install", () => self.skipWaiting());
 self.addEventListener("activate", (e) => e.waitUntil(
   caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim())));

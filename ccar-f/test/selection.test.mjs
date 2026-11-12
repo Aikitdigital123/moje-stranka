@@ -4,6 +4,7 @@ import { readFileSync } from "node:fs";
 import {
   domainQuotas, learningOrder, buildExam, recordExam, recordScore, newHistory, seededRng,
   gradeExam, isCorrect, shuffledOptionIds, EXAM_SIZE, SCENARIOS_PER_EXAM, EXAM_PRESETS,
+  reconcileHistory, reconcileActiveExam,
 } from "../src/selection.js";
 import { makeStore } from "../src/storage.js";
 
@@ -227,4 +228,43 @@ test("storage: a throwing localStorage getter does not crash makeStore()", () =>
   } finally {
     if (desc) Object.defineProperty(globalThis, "localStorage", desc); else delete globalThis.localStorage;
   }
+});
+
+test("published data: no official/practice-test material, every question attributed", () => {
+  assert.equal(Q.filter((q) => /^(official|hamza)-/.test(q.id)).length, 0);
+  const sources = JSON.parse(readFileSync(new URL("../public/data/sources.json", import.meta.url))).sources;
+  const repos = new Set(sources.map((s) => s.repo));
+  assert.ok(Q.every((q) => repos.has(q.src) && q.url && q.lic));
+  assert.equal(sources.reduce((a, s) => a + s.count, 0), Q.length);
+  for (const s of sources) {
+    if (s.license === "MIT") assert.match(s.licenseText, /Permission is hereby granted/);
+    else assert.equal(s.licenseUrl, "https://creativecommons.org/licenses/by/4.0/");
+  }
+});
+
+test("reconcileHistory: rebuilds lastUsed from stored exam ids after a database change", () => {
+  const ids = Q.slice(0, 5).map((q) => q.id);
+  const old = { v: 1, examNo: 3, cycle: 1, cycleStart: 1, lastUsed: { 999: 3, 1: 2 },
+    exams: [{ no: 2, ids: [ids[0], "official-p001"], score: { correct: 1, total: 2 } }, { no: 3, ids: [ids[1], "hamza-001"], score: null }] };
+  const h = reconcileHistory(old, Q, "v-new");
+  assert.equal(h.dataVersion, "v-new");
+  assert.deepEqual(h.lastUsed, { [byId[ids[0]].g]: 2, [byId[ids[1]].g]: 3 });
+  assert.equal(h.examNo, 3);
+  assert.equal(h.exams[0].score.correct, 1);
+  assert.equal(reconcileHistory(h, Q, "v-new"), h); // idempotent, no rewrite when up to date
+  // a following exam does not reuse the questions stored in history
+  const ex = buildExam(Q, h, seededRng(4));
+  assert.ok(!ex.groups.includes(byId[ids[0]].g) && !ex.groups.includes(byId[ids[1]].g));
+});
+
+test("reconcileActiveExam: removed questions are dropped, answers and position kept", () => {
+  const a = Q[0].id, b = Q[1].id;
+  const ex = { ids: ["official-p001", a, "hamza-002", b], pos: 3, answers: { a0: 1, [a]: ["a"], "official-p001": ["b"] },
+    optOrder: { [a]: ["a", "b"], [b]: ["b", "a"], "official-p001": ["a"] }, flags: ["hamza-002", b] };
+  const r = reconcileActiveExam(ex, byId);
+  assert.deepEqual(r.ids, [a, b]);
+  assert.equal(r.pos, 1); // still on question b
+  assert.deepEqual(Object.keys(r.answers), [a]);
+  assert.deepEqual(r.flags, [b]);
+  assert.equal(reconcileActiveExam({ ...ex, ids: ["official-p001"] }, byId), null);
 });

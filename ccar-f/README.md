@@ -23,6 +23,7 @@ Playwright prohlížeče nainstaluješ jednou příkazem `npx playwright install
 ```
 ccar-f/
   index.html            vstupní stránka (Vite entry)
+  licence.html          stránka „Licence a zdroje“ (druhý Vite entry, src/licence.js)
   vite.config.js        base "./" (funguje pod libovolnou podcestou), build → ../dist/ccar-f
   src/
     selection.js        ČISTÁ LOGIKA: kvóty oblastí, výběr testu, historie, cykly, míchání odpovědí, hodnocení
@@ -33,6 +34,7 @@ ccar-f/
   public/               kopíruje se beze změn
     data/questions.en.json   otázky (EN), načítají se při startu
     data/questions.cs.json   čeština, načte se až po kliknutí na „Přelož“
+    data/sources.json        zdroje, licence a úpravy (pro licence.html)
     sw.js                    service worker (offline)
     manifest.webmanifest, icon.svg
   test/selection.test.mjs    unit testy logiky
@@ -55,12 +57,21 @@ ccar-f/
 ```
 `questions.cs.json`: `{ "<id>": { "q": "…", "o": { "a": "…" }, "e": "…" } }`
 
+**Co se nepublikuje:** oficiální ukázkové a zkouškové otázky Anthropic, jejich parafráze a blízké kopie
+(stejná situace a stejná odpověď), stejně jako celý zdroj `hamzafarooq`, který přepisuje bývalý oficiální
+cvičný test. Seznam s důvody je jen lokálně v `cca-f-prep/review/public_exclusions.json`.
+`scripts/verify-dist.mjs` a unit testy hlídají, že se do `dist/` nedostanou.
+**Licence:** `public/data/sources.json` (autoři, copyright, plné texty MIT, odkazy CC BY, seznam upravených
+otázek) zobrazuje stránka `licence.html`. Upravené otázky mají v datech `"m": 1`.
+Po změně databáze se historie přepočítá z uložených ID otázek (`reconcileHistory`) a z rozpracovaného
+testu se vypustí odstraněné otázky (`reconcileActiveExam`).
+
 **Data needitujte ručně.** Generují se z ověřené databáze v `~/Projects/cca-f-prep`:
 `python3 -I tools/merge_review.py && python3 -I tools/build_public.py` (zapíše přímo sem do `public/data/`).
 Původ otázek, licence a výsledky ověření jsou popsané v `cca-f-prep/README.md` a `sources.md`.
 
 ## Pravidla režimů (testováno v `test/` a `tests/e2e/`)
-- **Učení:** všech 955 otázek v pořadí D1 → D5, uvnitř oblasti pevné pořadí databáze. Řešení se ukáže hned.
+- **Učení:** všech 833 otázek v pořadí D1 → D5, uvnitř oblasti pevné pořadí databáze. Řešení se ukáže hned.
   Postup je v `ccarf.v1.learn`.
 - **Testy** (`EXAM_PRESETS` v `selection.js`):
   - plný test: 60 otázek, 120 min, 4 scénáře;

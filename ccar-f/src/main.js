@@ -3,7 +3,7 @@
 import "./app.css";
 import {
   learningOrder, buildExam, recordExam, recordScore, newHistory, gradeExam, isCorrect,
-  shuffledOptionIds, domainQuotas, EXAM_PRESETS,
+  shuffledOptionIds, domainQuotas, EXAM_PRESETS, reconcileHistory, reconcileActiveExam,
 } from "./selection.js";
 import { makeStore } from "./storage.js";
 import { playTerminal, spinnerHtml, animateSpinners } from "./terminal.js";
@@ -134,7 +134,7 @@ function explanationHtml(q, chosen) {
   return `<div class="expl">
     <p class="verdict ${ok ? "ok" : "bad"}">${ok ? "✔ SPRÁVNĚ" : "✖ ŠPATNĚ"} · správně: ${q.c.map((c) => c.toUpperCase()).join(", ")}</p>
     <p>${fmt(q.e)}</p>${t ? `<p class="cs">${fmt(t.e)}</p>` : ""}
-    <div class="src">zdroj: <a href="${esc(q.url)}" target="_blank" rel="noopener noreferrer">${esc(q.src)}</a> · ${esc(q.lic)}</div></div>`;
+    <div class="src">zdroj: <a href="${esc(q.url)}" target="_blank" rel="noopener noreferrer">${esc(q.src)}</a> · <a href="licence.html">${esc(q.lic)}</a>${q.m ? " · upraveno" : ""}${t ? " · překlad do češtiny" : ""}</div></div>`;
 }
 function toggleChoice(q, chosen, id) {
   if (q.c.length === 1) return [id];
@@ -246,7 +246,7 @@ function home() {
 function footerHtml() {
   return `<footer class="site-foot">
     <p><b>Nezávislá vzdělávací aplikace.</b> Není produktem společnosti Anthropic, PBC, a není jí schválena ani sponzorována. Claude a Anthropic jsou ochranné známky Anthropic, PBC; zde jsou použity jen k označení zkoušky.</p>
-    <p>Otázky jsou neoficiální, z open-source zdrojů (MIT, CC BY 4.0) a jako parafráze ukázek z Exam Guide; ověřené proti oficiálnímu Exam Guide v1.0 a kurzům Anthropic Academy. U každé otázky je odkaz na zdroj a licenci. Oficiální informace: Anthropic Partner Academy.</p>
+    <p>Otázky jsou neoficiální, převzaté z open-source zdrojů (MIT, CC BY 4.0), ověřené proti veřejnému Exam Guide v1.0 a kurzům Anthropic Academy; některé jsou opravené a všechny mají český překlad. Neobsahuje oficiální ukázkové ani zkouškové otázky. U každé otázky je odkaz na zdroj a licenci. <a href="licence.html">Licence a zdroje</a></p>
     <p class="mono">© AIKIT Digital · data ${esc(DATA_VERSION)}</p></footer>`;
 }
 
@@ -255,6 +255,7 @@ function learnView(pos) {
   const learn = store.load("learn", { pos: 0, answers: {} });
   pos = Math.max(0, Math.min(pos, ORDER.length - 1));
   learn.pos = pos;
+  learn.posId = ORDER[pos];
   store.save("learn", learn);
   const q = byId[ORDER[pos]];
   const order = q.o.map((o) => o[0]);
@@ -438,9 +439,19 @@ async function boot() {
   ORDER = learningOrder(Q);
   // drop stale state after a database update
   const learn = store.load("learn", null);
-  if (learn) { for (const id of Object.keys(learn.answers)) if (!byId[id]) delete learn.answers[id]; store.save("learn", learn); }
+  if (learn) {
+    for (const id of Object.keys(learn.answers)) if (!byId[id]) delete learn.answers[id];
+    if (learn.posId && ORDER.includes(learn.posId)) learn.pos = ORDER.indexOf(learn.posId);
+    learn.pos = Math.max(0, Math.min(learn.pos || 0, ORDER.length - 1));
+    store.save("learn", learn);
+  }
+  const hist = store.load("history", null);
+  if (hist) store.save("history", reconcileHistory(hist, Q, DATA_VERSION));
   const ex = store.load("exam", null);
-  if (ex && (ex.ids.some((id) => !byId[id]) || !ex.optOrder)) store.remove("exam");
+  if (ex) {
+    const fixed = ex.optOrder ? reconcileActiveExam(ex, byId) : null;
+    if (fixed) store.save("exam", fixed); else store.remove("exam");
+  }
   if (showCs) loadCs();
   home();
   if ("serviceWorker" in navigator && import.meta.env.PROD) navigator.serviceWorker.register("sw.js").catch(() => {});

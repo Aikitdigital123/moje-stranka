@@ -1,0 +1,118 @@
+{
+ "generated": "from cca-f-prep/questions_verified.json",
+ "excludedCount": 122,
+ "sources": [
+  {
+   "repo": "utkarsh1agarwal/claude-architect-exam-guide",
+   "url": "https://github.com/utkarsh1agarwal/claude-architect-exam-guide",
+   "license": "MIT",
+   "creator": "utkarsh1agarwal (Claude Architect Exam Guide Contributors)",
+   "copyright": "Copyright (c) 2026 Claude Architect Exam Guide Contributors",
+   "licenseUrl": "https://opensource.org/license/mit",
+   "licenseText": "MIT License\n\nCopyright (c) 2026 Claude Architect Exam Guide Contributors\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n---\n\nNote: \"Claude,\" \"Claude Code,\" \"Claude Certified Architect,\" and related marks\nare trademarks of Anthropic, PBC and are not covered by this license. This\nlicense applies only to the original written content, code examples, and\nsite configuration authored by this project's contributors.\n",
+   "count": 309,
+   "modified": [
+    "utkarsh-149",
+    "utkarsh-179",
+    "utkarsh-193",
+    "utkarsh-238",
+    "utkarsh-255",
+    "utkarsh-258",
+    "utkarsh-311",
+    "utkarsh-339"
+   ]
+  },
+  {
+   "repo": "maludb/learn-claude",
+   "url": "https://github.com/maludb/learn-claude",
+   "license": "MIT",
+   "creator": "Edward Honour (maludb)",
+   "copyright": "Copyright (c) 2026 Edward Honour",
+   "licenseUrl": "https://opensource.org/license/mit",
+   "licenseText": "MIT License\n\nCopyright (c) 2026 Edward Honour\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+   "count": 133,
+   "modified": [
+    "maludb-063",
+    "maludb-097",
+    "maludb-106",
+    "maludb-107",
+    "maludb-133"
+   ]
+  },
+  {
+   "repo": "Aritra97-max/claude-architect-foundations-questions",
+   "url": "https://github.com/Aritra97-max/claude-architect-foundations-questions",
+   "license": "CC-BY-4.0",
+   "creator": "Aritra Sarkar (Aritra97-max)",
+   "copyright": "Copyright (c) 2026 Aritra Sarkar",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "licenseText": null,
+   "count": 140,
+   "modified": [
+    "aritra-006",
+    "aritra-045",
+    "aritra-064",
+    "aritra-068",
+    "aritra-082",
+    "aritra-083",
+    "aritra-122"
+   ]
+  },
+  {
+   "repo": "tony-dunlop/claude-certification-practice-tests",
+   "url": "https://github.com/tony-dunlop/claude-certification-practice-tests",
+   "license": "MIT",
+   "creator": "Tony Dunlop",
+   "copyright": "Copyright (c) 2026 Tony Dunlop",
+   "licenseUrl": "https://opensource.org/license/mit",
+   "licenseText": "MIT License\n\nCopyright (c) 2026 Tony Dunlop\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+   "count": 97,
+   "modified": []
+  },
+  {
+   "repo": "kenortiz/ccaf-marcus-files",
+   "url": "https://github.com/kenortiz/ccaf-marcus-files",
+   "license": "MIT",
+   "creator": "kenortiz",
+   "copyright": "Copyright (c) 2026 kenortiz",
+   "licenseUrl": "https://opensource.org/license/mit",
+   "licenseText": "MIT License\n\nCopyright (c) 2026 kenortiz\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+   "count": 65,
+   "modified": [
+    "kenortiz-015",
+    "kenortiz-053"
+   ]
+  },
+  {
+   "repo": "choychoy1/claude-architect-foundations-study-guide",
+   "url": "https://github.com/choychoy1/claude-architect-foundations-study-guide",
+   "license": "CC-BY-4.0",
+   "creator": "choychoy1",
+   "copyright": null,
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "licenseText": null,
+   "count": 59,
+   "modified": [
+    "choychoy-020",
+    "choychoy-060"
+   ]
+  },
+  {
+   "repo": "preporato/claude-certification-guide",
+   "url": "https://github.com/preporato/claude-certification-guide",
+   "license": "MIT",
+   "creator": "preporato.com",
+   "copyright": "Copyright (c) 2026 preporato.com",
+   "licenseUrl": "https://opensource.org/license/mit",
+   "licenseText": "MIT License\n\nCopyright (c) 2026 preporato.com\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n---\n\nNotice: this repository is not affiliated with, endorsed by, or sponsored by\nAnthropic, PBC. \"Claude\" is a trademark of Anthropic, PBC. Exam names, codes,\nprices, and blueprints are the property of their respective owners and are\nreferenced for identification and educational purposes.\n",
+   "count": 30,
+   "modified": [
+    "preporato-002",
+    "preporato-005",
+    "preporato-006",
+    "preporato-007",
+    "preporato-008"
+   ]
+  }
+ ]
+}

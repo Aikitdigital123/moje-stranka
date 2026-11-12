@@ -209,3 +209,45 @@ export function gradeExam(questionsById, ids, answers) {
 export function shuffledOptionIds(q, rng = Math.random) {
   return shuffle(q.o.map((o) => o[0]), rng);
 }
+
+/**
+ * Make a stored history consistent with the current question database. Group ids (`g`) are
+ * recomputed whenever the database changes, so `lastUsed` is rebuilt from the question ids that
+ * every recorded exam keeps. Questions no longer in the database are ignored; exam numbers,
+ * cycle and scores are kept. Returns the same object if nothing needed to change.
+ */
+export function reconcileHistory(history, questions, dataVersion) {
+  if (!history || history.dataVersion === dataVersion) return history;
+  const byId = Object.fromEntries(questions.map((q) => [q.id, q]));
+  const h = structuredClone(history);
+  h.lastUsed = {};
+  for (const e of h.exams) {
+    for (const id of e.ids || []) {
+      const q = byId[id];
+      if (q) h.lastUsed[q.g] = Math.max(h.lastUsed[q.g] || 0, e.no);
+    }
+  }
+  h.dataVersion = dataVersion;
+  return h;
+}
+
+/**
+ * Drop questions that no longer exist from an exam in progress (database update).
+ * Returns null when nothing is left.
+ */
+export function reconcileActiveExam(exam, byId) {
+  if (!exam) return null;
+  const keep = exam.ids.filter((id) => byId[id]);
+  if (keep.length === exam.ids.length) return exam;
+  if (!keep.length) return null;
+  const cur = exam.ids[exam.pos];
+  const pick = (o) => Object.fromEntries(Object.entries(o || {}).filter(([id]) => byId[id]));
+  return {
+    ...exam,
+    ids: keep,
+    optOrder: pick(exam.optOrder),
+    answers: pick(exam.answers),
+    flags: (exam.flags || []).filter((id) => byId[id]),
+    pos: Math.max(0, keep.indexOf(cur) >= 0 ? keep.indexOf(cur) : Math.min(exam.pos, keep.length - 1)),
+  };
+}

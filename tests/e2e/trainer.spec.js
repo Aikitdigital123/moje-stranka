@@ -319,3 +319,74 @@ test("service worker registers and the app works offline after the first visit",
   await expect(meta(page)).toContainText(`1/${TOTAL}`);
   await context.setOffline(false);
 });
+
+// ---------- licences ----------
+test("licence page: authors, copyright, full MIT texts, CC BY links, modifications, navigation", async ({ page }) => {
+  const SRC = JSON.parse(readFileSync(new URL("../../dist/ccar-f/data/sources.json", import.meta.url))).sources;
+  await app(page);
+  await expect(page.locator(".site-foot a[href='licence.html']")).toBeVisible();
+  await page.locator(".site-foot a[href='licence.html']").click();
+  await expect(page).toHaveURL(/\/ccar-f\/licence\.html$/);
+  await expect(page.locator("h1")).toHaveText("Licence a zdroje");
+  await expect(page.locator(".src-card")).toHaveCount(SRC.length);
+  await expect(page.locator('.src-card[data-license="MIT"] pre.lic')).toHaveCount(SRC.filter((s) => s.license === "MIT").length);
+  await expect(page.locator('.src-card[data-license="CC-BY-4.0"] a[href="https://creativecommons.org/licenses/by/4.0/"]').first()).toBeVisible();
+  for (const s of SRC) {
+    const card = page.locator(".src-card", { hasText: s.repo });
+    if (s.copyright) await expect(card).toContainText(s.copyright);
+    await expect(card).toContainText(`${s.count}`);
+    for (const id of s.modified) await expect(card).toContainText(id);
+  }
+  await page.locator('.src-card[data-license="MIT"] summary').first().click();
+  await expect(page.locator("pre.lic").first()).toContainText("Permission is hereby granted");
+  await expect(page.locator("#mod-count")).toContainText(" z ");
+  await noHorizontalScroll(page);
+  await page.locator("#back").click();
+  await expect(page.locator("h1")).toContainText("Foundations");
+});
+
+test("explanations link to the licence page and mark modified questions", async ({ page }) => {
+  const modIdx = ORDER.findIndex((id) => byId[id].m);
+  await app(page);
+  await page.evaluate((pos) => localStorage.setItem("ccarf.v1.learn", JSON.stringify({ pos, answers: {} })), modIdx);
+  await page.reload();
+  await page.locator("#go-learn2").click();
+  await page.locator(".opt").first().click();
+  await page.locator("#answer").click();
+  await expect(page.locator(".expl .src")).toContainText("upraveno");
+  await expect(page.locator(".expl .src a[href='licence.html']")).toBeVisible();
+});
+
+// ---------- compatibility with data saved by the previous version ----------
+test("state saved by the previous version (removed questions, old group ids) keeps working", async ({ page }) => {
+  const keep = ORDER.slice(0, 4); // questions that still exist
+  await app(page);
+  await page.evaluate(({ keep }) => {
+    const now = Date.now();
+    localStorage.setItem("ccarf.v1.history", JSON.stringify({ v: 1, examNo: 2, cycle: 1, cycleStart: 1, lastUsed: { 0: 1, 1: 2, 5000: 2 },
+      exams: [{ no: 1, date: new Date(now - 864e5).toISOString(), kind: "short", ids: ["official-p001", keep[0]], cycle: 1, score: { correct: 1, total: 15 } },
+              { no: 2, date: new Date(now).toISOString(), kind: "short", ids: ["hamza-001", keep[1], keep[2]], cycle: 1, score: null }] }));
+    localStorage.setItem("ccarf.v1.exam", JSON.stringify({ kind: "short", examNo: 2, minutes: 30, ids: ["hamza-001", keep[1], keep[2]], pos: 2,
+      optOrder: { "hamza-001": ["a", "b"], [keep[1]]: ["b", "a", "c", "d"], [keep[2]]: ["a", "b", "c", "d"] },
+      answers: { "hamza-001": ["a"], [keep[1]]: ["b"] }, flags: [], startedAt: now, newCycle: false }));
+    localStorage.setItem("ccarf.v1.learn", JSON.stringify({ pos: 1, answers: { "official-p001": { chosen: ["a"], ok: true }, [keep[0]]: { chosen: ["a"], ok: false } } }));
+  }, { keep });
+  await page.reload();
+  await expect(page.locator("table tbody tr")).toHaveCount(1); // the finished exam stays in history
+  await expect(page.locator("#go-resume2")).toContainText("2 otázek"); // removed question dropped, test kept
+  await page.locator("#go-resume2").click();
+  expect(await qid(page)).toBe(keep[2]); // still on the same question
+  await page.locator("#prev").click();
+  await expect(page.locator(".opt.sel")).toHaveCount(1); // earlier answer preserved
+  const st = await page.evaluate(() => ({ h: JSON.parse(localStorage.getItem("ccarf.v1.history")), l: JSON.parse(localStorage.getItem("ccarf.v1.learn")) }));
+  expect(st.h.dataVersion).toBeTruthy();
+  expect(Object.keys(st.h.lastUsed)).toHaveLength(3); // rebuilt from stored ids, old/removed groups gone
+  expect(Object.keys(st.l.answers)).toEqual([keep[0]]);
+  await page.locator("#submit").click(); // card button (we are not on the last question)
+  await expect(page.locator(".score")).toContainText("/2");
+  await page.locator("#home").click();
+  await page.locator("#go-short2").click();
+  await expect(meta(page)).toContainText("KRÁTKÝ TEST · 1/15"); // exam is built after a short animation
+  const ex = await page.evaluate(() => JSON.parse(localStorage.getItem("ccarf.v1.exam")));
+  expect(ex.ids.filter((id) => keep.slice(0, 3).includes(id))).toEqual([]); // no repeats of stored questions
+});
