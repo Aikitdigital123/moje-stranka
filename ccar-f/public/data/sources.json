@@ -1,6 +1,6 @@
 {
  "generated": "from cca-f-prep/questions_verified.json",
- "excludedCount": 122,
+ "excludedCount": 143,
  "sources": [
   {
    "repo": "utkarsh1agarwal/claude-architect-exam-guide",
@@ -10,16 +10,31 @@
    "copyright": "Copyright (c) 2026 Claude Architect Exam Guide Contributors",
    "licenseUrl": "https://opensource.org/license/mit",
    "licenseText": "MIT License\n\nCopyright (c) 2026 Claude Architect Exam Guide Contributors\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n---\n\nNote: \"Claude,\" \"Claude Code,\" \"Claude Certified Architect,\" and related marks\nare trademarks of Anthropic, PBC and are not covered by this license. This\nlicense applies only to the original written content, code examples, and\nsite configuration authored by this project's contributors.\n",
-   "count": 309,
+   "count": 297,
    "modified": [
+    "utkarsh-017",
+    "utkarsh-072",
+    "utkarsh-090",
+    "utkarsh-100",
+    "utkarsh-115",
+    "utkarsh-140",
     "utkarsh-149",
     "utkarsh-179",
+    "utkarsh-182",
+    "utkarsh-187",
     "utkarsh-193",
     "utkarsh-238",
+    "utkarsh-246",
     "utkarsh-255",
     "utkarsh-258",
+    "utkarsh-272",
+    "utkarsh-281",
+    "utkarsh-295",
     "utkarsh-311",
-    "utkarsh-339"
+    "utkarsh-328",
+    "utkarsh-329",
+    "utkarsh-339",
+    "utkarsh-344"
    ]
   },
   {
@@ -30,13 +45,26 @@
    "copyright": "Copyright (c) 2026 Edward Honour",
    "licenseUrl": "https://opensource.org/license/mit",
    "licenseText": "MIT License\n\nCopyright (c) 2026 Edward Honour\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
-   "count": 133,
+   "count": 131,
    "modified": [
+    "maludb-009",
+    "maludb-014",
+    "maludb-041",
     "maludb-063",
+    "maludb-080",
+    "maludb-088",
+    "maludb-095",
     "maludb-097",
+    "maludb-098",
     "maludb-106",
     "maludb-107",
-    "maludb-133"
+    "maludb-118",
+    "maludb-119",
+    "maludb-120",
+    "maludb-133",
+    "maludb-138",
+    "maludb-140",
+    "maludb-143"
    ]
   },
   {
@@ -47,15 +75,43 @@
    "copyright": "Copyright (c) 2026 Aritra Sarkar",
    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
    "licenseText": null,
-   "count": 140,
+   "count": 134,
    "modified": [
+    "aritra-001",
+    "aritra-004",
     "aritra-006",
+    "aritra-010",
+    "aritra-011",
+    "aritra-016",
+    "aritra-022",
+    "aritra-025",
+    "aritra-035",
+    "aritra-036",
+    "aritra-042",
+    "aritra-043",
     "aritra-045",
+    "aritra-048",
+    "aritra-056",
+    "aritra-061",
     "aritra-064",
+    "aritra-065",
     "aritra-068",
+    "aritra-069",
+    "aritra-070",
+    "aritra-072",
     "aritra-082",
     "aritra-083",
-    "aritra-122"
+    "aritra-094",
+    "aritra-096",
+    "aritra-100",
+    "aritra-101",
+    "aritra-103",
+    "aritra-109",
+    "aritra-110",
+    "aritra-114",
+    "aritra-117",
+    "aritra-122",
+    "aritra-128"
    ]
   },
   {
@@ -67,7 +123,9 @@
    "licenseUrl": "https://opensource.org/license/mit",
    "licenseText": "MIT License\n\nCopyright (c) 2026 Tony Dunlop\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
    "count": 97,
-   "modified": []
+   "modified": [
+    "tony-020"
+   ]
   },
   {
    "repo": "kenortiz/ccaf-marcus-files",
@@ -80,6 +138,11 @@
    "count": 65,
    "modified": [
     "kenortiz-015",
+    "kenortiz-029",
+    "kenortiz-031",
+    "kenortiz-032",
+    "kenortiz-035",
+    "kenortiz-044",
     "kenortiz-053"
    ]
   },
@@ -91,9 +154,13 @@
    "copyright": null,
    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
    "licenseText": null,
-   "count": 59,
+   "count": 58,
    "modified": [
+    "choychoy-008",
+    "choychoy-015",
     "choychoy-020",
+    "choychoy-043",
+    "choychoy-046",
     "choychoy-060"
    ]
   },
@@ -108,10 +175,12 @@
    "count": 30,
    "modified": [
     "preporato-002",
+    "preporato-003",
     "preporato-005",
     "preporato-006",
     "preporato-007",
-    "preporato-008"
+    "preporato-008",
+    "preporato-020"
    ]
   }
  ]

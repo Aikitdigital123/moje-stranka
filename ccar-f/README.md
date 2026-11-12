@@ -71,7 +71,7 @@ testu se vypustí odstraněné otázky (`reconcileActiveExam`).
 Původ otázek, licence a výsledky ověření jsou popsané v `cca-f-prep/README.md` a `sources.md`.
 
 ## Pravidla režimů (testováno v `test/` a `tests/e2e/`)
-- **Učení:** všech 833 otázek v pořadí D1 → D5, uvnitř oblasti pevné pořadí databáze. Řešení se ukáže hned.
+- **Učení:** všech 812 otázek v pořadí D1 → D5, uvnitř oblasti pevné pořadí databáze. Řešení se ukáže hned.
   Postup je v `ccarf.v1.learn`.
 - **Testy** (`EXAM_PRESETS` v `selection.js`):
   - plný test: 60 otázek, 120 min, 4 scénáře;

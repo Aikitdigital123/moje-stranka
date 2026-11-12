@@ -92,7 +92,12 @@ test("no repeats inside a cycle; new cycle only when a domain runs out; minimal 
     prevGroups = new Set(ex.groups);
     h = recordExam(h, ex);
   }
-  assert.ok(firstCycleExams >= 10, `only ${firstCycleExams} exams before the first repeat`);
+  // lower bound from the data: the scarcest domain limits how many exams fit in one cycle
+  const groupsPerDomain = {};
+  for (const q of examQ) (groupsPerDomain[q.d] ??= new Set()).add(q.g);
+  const bound = Math.min(...Object.keys(quotas).map((d) => Math.floor(groupsPerDomain[d].size / quotas[d])));
+  assert.ok(firstCycleExams >= bound - 1, `only ${firstCycleExams} exams before the first repeat (data allows ~${bound})`);
+  assert.ok(firstCycleExams >= 8, `only ${firstCycleExams} exams before the first repeat`);
 });
 
 test("synthetic: falls back to other scenarios before repeating, then starts a new cycle", () => {
